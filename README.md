@@ -1,57 +1,57 @@
-# 🍎 Fruit Classification: Fresh vs Rotten
+# Fruit Classification: Fresh vs Rotten
 ### Deep Learning | Transfer Learning | Data Augmentation
 
-Este projeto foi desenvolvido como parte de uma avaliação técnica da **NVIDIA Deep Learning Institute (DLI)**. O objetivo é classificar imagens de frutas entre frescas e estragadas, utilizando uma rede neural profunda com foco em alta acurácia e generalização.
+This project was developed as part of a technical assessment for the NVIDIA Deep Learning Institute (DLI). The goal is to classify images of fruit between fresh and rotten states using a deep neural network focused on high accuracy and generalization.
 
 ---
 
-## 📋 Visão Geral
-O classificador foi treinado para identificar 6 categorias distintas de frutas:
-* **Maçãs**: Frescas e Estragadas
-* **Bananas**: Frescas e Estragadas
-* **Laranjas**: Frescas e Estragadas
+## Project Overview
+The classifier was trained to identify 6 distinct categories of fruit:
+* **Apples**: Fresh and Rotten
+* **Bananas**: Fresh and Rotten
+* **Oranges**: Fresh and Rotten
 
-A meta estabelecida para aprovação era uma acurácia de validação de pelo menos **92%**.
+The established target for approval was a validation accuracy of at least 92%.
 
 ---
 
-## 🏗️ Arquitetura do Modelo
-Para este desafio, utilizei a técnica de **Transfer Learning** (Aprendizado por Transferência).
+## Model Architecture
+For this challenge, the Transfer Learning technique was utilized.
 
-* **Base Model**: VGG16 pré-treinada no dataset ImageNet.
-* **Feature Extraction**: As camadas convolucionais da VGG16 foram mantidas para extrair características complexas das imagens.
+* **Base Model**: VGG16 pre-trained on the ImageNet dataset.
+* **Feature Extraction**: The convolutional layers of the VGG16 were maintained to extract complex features from the images.
 * **Custom Head**: 
-    * `GlobalAveragePooling2D` para redução de dimensionalidade.
-    * Camada Densa com 256 neurônios e ativação `ReLU`.
-    * `Dropout (0.5)` para prevenir overfitting.
-    * Camada de saída com 6 neurônios e ativação `Softmax`.
+    * GlobalAveragePooling2D for dimensionality reduction.
+    * Dense Layer with 256 neurons and ReLU activation.
+    * Dropout (0.5) to prevent overfitting.
+    * Output Layer with 6 neurons and Softmax activation.
 
 ---
 
-## 🛠️ Técnicas Aplicadas
+## Applied Techniques
 
 ### 1. Data Augmentation
-Devido ao tamanho do dataset, apliquei aumento de dados em tempo real para tornar o modelo mais robusto contra variações de ângulo, zoom e posição:
-* Rotação, Zoom, Deslocamento e Horizontal Flip.
+Due to the dataset size, real-time data augmentation was applied to make the model more robust against variations in angle, zoom, and position:
+* Rotation, Zoom, Shift, and Horizontal Flip.
 
-### 2. Fine-Tuning e Otimização
-* **Optimizer**: `RMSprop` com uma taxa de aprendizado reduzida ($10^{-5}$) para garantir estabilidade durante o ajuste fino dos pesos.
-* **Loss Function**: `Categorical Crossentropy` (apropriada para múltiplas classes).
-
----
-
-## 📈 Resultados
-O modelo alcançou uma performance sólida, superando os requisitos da avaliação:
-* **Acurácia de Validação**: ~93.75%
-* **Loss Final**: ~0.17
-
-![Gráfico de Perda](loss_graph.png)
-> *Convergência estável observada entre o erro de treinamento e validação ao longo de 16 épocas.*
+### 2. Fine-Tuning and Optimization
+* **Optimizer**: RMSprop with a reduced learning rate ($10^{-5}$) to ensure stability during the fine-tuning of weights.
+* **Loss Function**: Categorical Crossentropy (appropriate for multiple classes).
 
 ---
 
-## 💻 Como Executar
-1. Clone o repositório.
-2. Certifique-se de ter as bibliotecas instaladas:
+## Results
+The model achieved solid performance, exceeding the evaluation requirements:
+* **Validation Accuracy**: ~93.75%
+* **Final Loss**: ~0.17
+
+![Loss Graph](Model/loss_graph.png)
+> *Stable convergence observed between training and validation loss over 16 epochs.*
+
+---
+
+## How to Run
+1. Clone the repository.
+2. Ensure you have the necessary libraries installed:
    ```bash
    pip install tensorflow matplotlib
