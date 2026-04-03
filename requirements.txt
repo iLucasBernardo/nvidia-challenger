@@ -1,0 +1,10 @@
+# Bibliotecas Principais
+tensorflow>=2.15.0
+matplotlib>=3.8.0
+
+# Dependência necessária para processamento de imagem no Keras
+scipy>=1.11.0
+
+# Recomendado para manipulação de arrays e imagens
+numpy>=1.26.0
+pillow>=10.0.0
